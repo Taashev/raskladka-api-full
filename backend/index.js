@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('./utils/cors');
 
 const { PORT, NODE_ENV } = require('./config');
 const app = express();
+
+app.use(cors);
 
 app.listen(PORT, (err) => {
   if (NODE_ENV !== 'production')
