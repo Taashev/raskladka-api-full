@@ -4,8 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('./utils/cors');
 const router = require('./routes/router');
 
-const { PORT, NODE_ENV } = require('./config');
+const { PORT, NODE_ENV, MONGO_URL } = require('./config');
 const app = express();
+
+mongoose.connect(MONGO_URL);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
